@@ -24,13 +24,13 @@ namespace FlightBookingApp
 
         private void Admin_Load(object sender, EventArgs e)
         {
-            Login.mycon.Open();
-            myCommand = new SqlCommand("select uname,uphone,locations,departure_date,utr from users inner join booking on users.username=booking.username", Login.mycon);
-            dr = myCommand.ExecuteReader();
-            dt = new DataTable();
-            dt.Load(dr);
-            dataGridView1.DataSource = dt;
-            Login.mycon.Close();
+            //Login.mycon.Open();
+            //myCommand = new SqlCommand("select uname,uphone,locations,departure_date,utr from users inner join booking on users.username=booking.username", Login.mycon);
+            //dr = myCommand.ExecuteReader();
+            //dt = new DataTable();
+            //dt.Load(dr);
+            //dataGridView1.DataSource = dt;
+            //Login.mycon.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -124,6 +124,7 @@
             this.dataGridViewbookinghistory.RowTemplate.Height = 24;
             this.dataGridViewbookinghistory.Size = new System.Drawing.Size(979, 203);
             this.dataGridViewbookinghistory.TabIndex = 7;
+            this.dataGridViewbookinghistory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewbookinghistory_CellContentClick);
             // 
             // Profile
             // 

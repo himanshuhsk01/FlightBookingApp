@@ -262,7 +262,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(317, 151);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 40);
+            this.button1.Size = new System.Drawing.Size(139, 40);
             this.button1.TabIndex = 3;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
@@ -312,7 +312,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(918, 151);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 40);
+            this.button2.Size = new System.Drawing.Size(129, 40);
             this.button2.TabIndex = 8;
             this.button2.Text = "Search";
             this.button2.UseVisualStyleBackColor = true;

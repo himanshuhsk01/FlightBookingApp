@@ -86,14 +86,15 @@ namespace FlightBookingApp
 
                         Login.mycon.Close();
                         MessageBox.Show("Your Ticket is Booked");
-                        comboBox1.Text = "";
-                        comboBox2.Text = "";
-                        textBox3.Text = "";
-                        radioButton1.Checked = false;
-                        //dataGridView1.Rows.Clear();
-                        dateTimePicker1.MinDate = DateTime.Now.AddDays(1);
-                        DataTable dtn=new DataTable();
-                        dataGridView1.DataSource = dtn;
+                            comboBox1.Text = "";
+                            comboBox2.Text = "";
+                            textBox3.Text = "";
+                            radioButton1.Checked = false;
+                            
+                            dateTimePicker1.Value = DateTime.Now.AddDays(1);
+                            
+                            DataTable dtn=new DataTable();
+                            dataGridView1.DataSource = dtn;
                     }
                     else
                     {
