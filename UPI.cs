@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -41,6 +42,21 @@ namespace FlightBookingApp
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void UPI_Load(object sender, EventArgs e)
+        {
+            Login.mycon.Open();
+            SqlCommand mycommand=new SqlCommand("select fprice from flight where pnr=@pnr",Login.mycon);
+            mycommand.Parameters.AddWithValue("@pnr",Home.pnrAccess);
+            SqlDataReader dr=mycommand.ExecuteReader();
+           
+            if (dr.Read()) {
+                totalBill.Text = dr["fprice"].ToString();
+                
+            }
+            dr.Close();
+            Login.mycon.Close();
         }
     }
 }

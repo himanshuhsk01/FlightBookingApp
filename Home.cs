@@ -8,12 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FlightBookingApp
 {
     public partial class Home : Form
     {
         SqlCommand mycommand;
+        public static string pnrAccess;
         public Home()
         {
             InitializeComponent();
@@ -69,18 +71,27 @@ namespace FlightBookingApp
                     if (textBox3.Text == UPI.utr)
                     {
                         Login.mycon.Open();
-                        mycommand = new SqlCommand("insert into booking values(@username, @locations, @departure_date, @UTR)", Login.mycon);
+                        mycommand = new SqlCommand("insert into booking values(@username, @bsource, @bdestination,@bdeparture_date,@pnr, @UTR)", Login.mycon);
                         mycommand.Parameters.AddWithValue("@username", Login.usernameForHome);
-                        mycommand.Parameters.AddWithValue("@locations", comboBox1.Text + "To" + comboBox2.Text);
-                        mycommand.Parameters.AddWithValue("@departure_date", dateTimePicker1.Value.ToShortDateString());
+                        mycommand.Parameters.AddWithValue("@bsource", comboBox1.Text);
+                        mycommand.Parameters.AddWithValue("@bdestination", comboBox2.Text);
+                        mycommand.Parameters.AddWithValue("@bdeparture_date", dateTimePicker1.Value.ToShortDateString());
+                        mycommand.Parameters.AddWithValue("@pnr", pnrAccess);
                         mycommand.Parameters.AddWithValue("@UTR", textBox3.Text);
                         mycommand.ExecuteNonQuery();
+
+
+
                         Login.mycon.Close();
                         MessageBox.Show("Your Ticket is Booked");
                         comboBox1.Text = "";
                         comboBox2.Text = "";
                         textBox3.Text = "";
                         radioButton1.Checked = false;
+                        //dataGridView1.Rows.Clear();
+                        dateTimePicker1.MinDate = DateTime.Now.AddDays(1);
+                        DataTable dtn=new DataTable();
+                        dataGridView1.DataSource = dtn;
                     }
                     else
                     {
@@ -139,6 +150,26 @@ namespace FlightBookingApp
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void searchbtn_Click(object sender, EventArgs e)
+        {
+            Login.mycon.Open();
+            mycommand = new SqlCommand("select * from flight where fsource=@source and fdestination=@destination", Login.mycon);
+            mycommand.Parameters.AddWithValue("@source",comboBox1.Text);
+            mycommand.Parameters.AddWithValue("@destination", comboBox2.Text);
+            SqlDataReader dr = mycommand.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            dataGridView1.DataSource = dt;
+            Login.mycon.Close();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow dgr = dataGridView1.CurrentRow;
+            pnrAccess = dgr.Cells[0].Value.ToString();
+            MessageBox.Show(pnrAccess + " is selected");
         }
     }
 }
