@@ -32,6 +32,13 @@ namespace FlightBookingApp
             comboBox1.Visible = false;
             comboBox2.Visible = false;
             button1.Visible = false;
+            Login.mycon.Open();
+            mycommand = new SqlCommand("SELECT u.uname, u.uage, u.ugender, u.uidentity, u.uphone, b.bsource, b.bdestination, b.bdeparture_date, b.pnr, f.fname, f.fprice FROM users u JOIN booking b ON u.username = b.username JOIN flight f ON f.pnr = b.pnr ", Login.mycon);
+            dr = mycommand.ExecuteReader();
+            dt = new DataTable();
+            dt.Load(dr);
+            dataGridView1.DataSource = dt;
+            Login.mycon.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -130,9 +137,7 @@ namespace FlightBookingApp
             else if(filter.Text == "All")
             {
                 Login.mycon.Open();
-                mycommand = new SqlCommand("SELECT u.uname, u.uage, u.ugender, u.uidentity, u.uphone, b.bsource, b.bdestination, b.bdeparture_date, b.pnr, f.fname, f.fprice FROM users u JOIN booking b ON u.username = b.username JOIN flight f ON f.pnr = b.pnr where b.bdeparture_date >= @blower and b.bdeparture_date <= @bhigher", Login.mycon);
-                mycommand.Parameters.AddWithValue("@blower", dateTimePicker1.Value.ToShortDateString());
-                mycommand.Parameters.AddWithValue("@bhigher", dateTimePicker2.Value.ToShortDateString());
+                mycommand = new SqlCommand("SELECT u.uname, u.uage, u.ugender, u.uidentity, u.uphone, b.bsource, b.bdestination, b.bdeparture_date, b.pnr, f.fname, f.fprice FROM users u JOIN booking b ON u.username = b.username JOIN flight f ON f.pnr = b.pnr ", Login.mycon);
                 dr = mycommand.ExecuteReader();
                 dt = new DataTable();
                 dt.Load(dr);
