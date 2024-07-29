@@ -36,6 +36,7 @@
             this.txtProfileName = new System.Windows.Forms.TextBox();
             this.txtProfilePhoneNumber = new System.Windows.Forms.TextBox();
             this.dataGridViewbookinghistory = new System.Windows.Forms.DataGridView();
+            this.btn_cancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewbookinghistory)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +45,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(902, 15);
+            this.label1.Location = new System.Drawing.Point(551, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(297, 58);
             this.label1.TabIndex = 0;
@@ -55,7 +56,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::FlightBookingApp.Properties.Resources.OIP;
-            this.pictureBox1.Location = new System.Drawing.Point(856, 18);
+            this.pictureBox1.Location = new System.Drawing.Point(505, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(53, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -67,7 +68,7 @@
             // 
             this.lblProfileName.AutoSize = true;
             this.lblProfileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProfileName.Location = new System.Drawing.Point(814, 161);
+            this.lblProfileName.Location = new System.Drawing.Point(463, 155);
             this.lblProfileName.Name = "lblProfileName";
             this.lblProfileName.Size = new System.Drawing.Size(100, 36);
             this.lblProfileName.TabIndex = 2;
@@ -77,7 +78,7 @@
             // 
             this.lblProfilePhoneNumber.AutoSize = true;
             this.lblProfilePhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProfilePhoneNumber.Location = new System.Drawing.Point(758, 272);
+            this.lblProfilePhoneNumber.Location = new System.Drawing.Point(407, 266);
             this.lblProfilePhoneNumber.Name = "lblProfilePhoneNumber";
             this.lblProfilePhoneNumber.Size = new System.Drawing.Size(231, 36);
             this.lblProfilePhoneNumber.TabIndex = 3;
@@ -88,7 +89,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(912, 392);
+            this.label3.Location = new System.Drawing.Point(561, 386);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(231, 36);
             this.label3.TabIndex = 4;
@@ -98,7 +99,7 @@
             // txtProfileName
             // 
             this.txtProfileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProfileName.Location = new System.Drawing.Point(1036, 161);
+            this.txtProfileName.Location = new System.Drawing.Point(685, 155);
             this.txtProfileName.Name = "txtProfileName";
             this.txtProfileName.ReadOnly = true;
             this.txtProfileName.Size = new System.Drawing.Size(297, 36);
@@ -107,7 +108,7 @@
             // txtProfilePhoneNumber
             // 
             this.txtProfilePhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProfilePhoneNumber.Location = new System.Drawing.Point(1036, 274);
+            this.txtProfilePhoneNumber.Location = new System.Drawing.Point(685, 268);
             this.txtProfilePhoneNumber.Name = "txtProfilePhoneNumber";
             this.txtProfilePhoneNumber.ReadOnly = true;
             this.txtProfilePhoneNumber.Size = new System.Drawing.Size(297, 36);
@@ -118,7 +119,7 @@
             this.dataGridViewbookinghistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewbookinghistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewbookinghistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewbookinghistory.Location = new System.Drawing.Point(575, 479);
+            this.dataGridViewbookinghistory.Location = new System.Drawing.Point(224, 473);
             this.dataGridViewbookinghistory.Name = "dataGridViewbookinghistory";
             this.dataGridViewbookinghistory.RowHeadersWidth = 51;
             this.dataGridViewbookinghistory.RowTemplate.Height = 24;
@@ -126,11 +127,23 @@
             this.dataGridViewbookinghistory.TabIndex = 7;
             this.dataGridViewbookinghistory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewbookinghistory_CellContentClick);
             // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancel.Location = new System.Drawing.Point(877, 380);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(224, 51);
+            this.btn_cancel.TabIndex = 8;
+            this.btn_cancel.Text = "Cancel Ticket";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1637, 683);
+            this.ClientSize = new System.Drawing.Size(1842, 776);
+            this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.dataGridViewbookinghistory);
             this.Controls.Add(this.txtProfilePhoneNumber);
             this.Controls.Add(this.txtProfileName);
@@ -160,5 +173,6 @@
         private System.Windows.Forms.TextBox txtProfileName;
         private System.Windows.Forms.TextBox txtProfilePhoneNumber;
         private System.Windows.Forms.DataGridView dataGridViewbookinghistory;
+        private System.Windows.Forms.Button btn_cancel;
     }
 }

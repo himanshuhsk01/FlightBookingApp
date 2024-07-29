@@ -14,6 +14,7 @@ namespace FlightBookingApp
     public partial class Profile : Form
     {
         SqlCommand mycommand;
+        string utr;
       
         public Profile()
         {
@@ -54,18 +55,40 @@ namespace FlightBookingApp
             }
             reader.Close();
             
-            mycommand =new SqlCommand("select locations,departure_date,utr from booking where username=@username",Login.mycon);
+            mycommand =new SqlCommand("select booking.bsource,booking.bdestination,booking.bdeparture_date,booking.utr,booking.pnr ,flight.fname,flight.fprice from booking join flight on booking.pnr = flight.pnr where booking.username = @username;", Login.mycon);
             mycommand.Parameters.AddWithValue("@username", Login.usernameForHome);
             SqlDataReader dr = mycommand.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);
             dataGridViewbookinghistory.DataSource = dt;
+            dr.Close();
             Login.mycon.Close();
+            
            
         }
 
         private void dataGridViewbookinghistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+           
+                DataGridViewRow dgr = dataGridViewbookinghistory.CurrentRow;
+                utr = dgr.Cells[3].Value.ToString();
+                MessageBox.Show(utr + " is selected");
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            Login.mycon.Open();
+            mycommand = new SqlCommand("delete from booking where utr=@utr", Login.mycon);
+            mycommand.Parameters.AddWithValue("@utr", utr);
+            SqlDataReader reader = mycommand.ExecuteReader();
+            reader.Close();
+            mycommand = new SqlCommand("select booking.bsource,booking.bdestination,booking.bdeparture_date,booking.utr,booking.pnr ,flight.fname,flight.fprice from booking join flight on booking.pnr = flight.pnr where booking.username = @username;", Login.mycon);
+            mycommand.Parameters.AddWithValue("@username", Login.usernameForHome);
+            SqlDataReader dr1 = mycommand.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr1);
+            dataGridViewbookinghistory.DataSource = dt;
+            Login.mycon.Close();
 
         }
     }
