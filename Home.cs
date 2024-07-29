@@ -80,7 +80,9 @@ namespace FlightBookingApp
                         mycommand.Parameters.AddWithValue("@UTR", textBox3.Text);
                         mycommand.ExecuteNonQuery();
 
-
+                        mycommand = new SqlCommand("update flight set favai_tickets = favai_tickets-1 where pnr=@pnr", Login.mycon);
+                        mycommand.Parameters.AddWithValue("@pnr",pnrAccess);
+                        mycommand.ExecuteNonQuery();
 
                         Login.mycon.Close();
                         MessageBox.Show("Your Ticket is Booked");
@@ -111,7 +113,7 @@ namespace FlightBookingApp
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton1.Checked) { 
+            if (radioButton1.Checked && !string.IsNullOrEmpty(pnrAccess)) { 
                UPI upi= new UPI();
                upi.Show();
             }

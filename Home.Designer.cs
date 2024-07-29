@@ -42,6 +42,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.searchbtn = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,9 +100,9 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Khaki;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(309, 861);
+            this.button1.Location = new System.Drawing.Point(325, 861);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(211, 60);
+            this.button1.Size = new System.Drawing.Size(172, 50);
             this.button1.TabIndex = 11;
             this.button1.Text = "Book";
             this.button1.UseVisualStyleBackColor = false;
@@ -215,7 +216,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(98, 450);
+            this.dataGridView1.Location = new System.Drawing.Point(98, 477);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -227,13 +228,25 @@
             // 
             this.searchbtn.BackColor = System.Drawing.Color.Khaki;
             this.searchbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchbtn.Location = new System.Drawing.Point(295, 346);
+            this.searchbtn.Location = new System.Drawing.Point(325, 346);
             this.searchbtn.Name = "searchbtn";
-            this.searchbtn.Size = new System.Drawing.Size(211, 60);
+            this.searchbtn.Size = new System.Drawing.Size(172, 49);
             this.searchbtn.TabIndex = 20;
             this.searchbtn.Text = "Search";
             this.searchbtn.UseVisualStyleBackColor = false;
             this.searchbtn.Click += new System.EventHandler(this.searchbtn_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(262, 434);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(278, 25);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Select Flight by Double Taping";
             // 
             // Home
             // 
@@ -243,6 +256,7 @@
             this.BackgroundImage = global::FlightBookingApp.Properties.Resources.pexels_pixabay_62623;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1661, 1175);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.searchbtn);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label6);
@@ -287,6 +301,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button searchbtn;
+        private System.Windows.Forms.Label label7;
     }
 }
 
