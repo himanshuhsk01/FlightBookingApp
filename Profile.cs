@@ -54,7 +54,7 @@ namespace FlightBookingApp
             }
             reader.Close();
             
-            mycommand =new SqlCommand("select locations,departure_date,utr from booking where username=@username",Login.mycon);
+            mycommand =new SqlCommand("select booking.bsource,booking.bdestination,booking.bdeparture_date,booking.utr,booking.pnr ,flight.fname,flight.fprice from booking join flight on booking.pnr = flight.pnr where booking.username = @username;", Login.mycon);
             mycommand.Parameters.AddWithValue("@username", Login.usernameForHome);
             SqlDataReader dr = mycommand.ExecuteReader();
             DataTable dt = new DataTable();
